@@ -14,19 +14,23 @@ public class WebStep {
     public void openMainPage() {
         open("");
     }
+
     @Step("Search repository {repo}")
     public void searchForRepository(String repo) {
         $("[data-target=\"qbsearch-input.inputButtonText\"]").click();
         $("#query-builder-test").setValue(repo).pressEnter();
     }
+
     @Step("Click on repository link {repo}")
     public void clickOnRepositoryLink(String repo) {
         $(linkText(repo)).click();
     }
+
     @Step("Click on Issues tab")
     public void clickOnIssueTab() {
         $("#issues-tab").click();
     }
+
     @Step("Check issue {issue}")
     public void checkIssue(String issue) {
         $(withText(issue)).should(exist);
